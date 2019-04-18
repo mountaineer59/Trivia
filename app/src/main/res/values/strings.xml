@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Trivia</string>
+    <string name="what_is_your_name">What is your name?</string>
+    <string name="type_in_your_name">type in your name</string>
+    <string name="next">Next</string>
+    <string name="select_only_1_or_more_option">Select only 1 or more option</string>
+
+    <string name="question">Sample Question buddy</string>
+    <string name="trivia">Trivia</string>
+    <string name="confirm_and_next">Confirm and Next</string>
+</resources>
