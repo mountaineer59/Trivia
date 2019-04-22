@@ -58,6 +58,7 @@ public class QuesAnsActivity extends AppCompatActivity {
         confirmNextBtn = findViewById(R.id.nextTwoBtn);
 
 
+
         //get list
         QuizDbHelper dbHelper = new QuizDbHelper(this);
         questionList = dbHelper.getAllQuestions();
@@ -69,14 +70,13 @@ public class QuesAnsActivity extends AppCompatActivity {
         confirmNextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if (!answered) {
+
                 if (radioButton1.isChecked() || radioButton2.isChecked() || radioButton3.isChecked() || radioButton4.isChecked()) {
                     checkAnswer();
                 } else {
                     Toast.makeText(QuesAnsActivity.this, "Please select an answer first", Toast.LENGTH_SHORT).show();
                 }
-//                } else {
-//                }
+
             }
         });
     }
@@ -114,8 +114,7 @@ public class QuesAnsActivity extends AppCompatActivity {
             radioButton4.setText(currentQuestion.getOption4());
 
             questionCounter++;
-//            answered = false;
-//            confirmNextBtn.setText("Confirm");
+
         } else {
 
             //show summary

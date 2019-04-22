@@ -22,7 +22,6 @@ public class QuizDbHelper extends SQLiteOpenHelper {
 
     public QuizDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-
     }
 
     @Override
@@ -51,21 +50,25 @@ public class QuizDbHelper extends SQLiteOpenHelper {
 
     }
 
+    //covienience method for CREATE operation
     private void fillQuestionsTable() {
-        Question q1 = new Question("A is correct", "A", "B", "C", "D", 1);
+        Question q1 = new Question("Who is the best cricketer in the world?", "A) Sachin Tendulkar",
+                "B) Virat Kolli",
+                "C) Adam Gilchirst",
+                "D) Jacques Kallis", 1);
         addQuestion(q1);
 
-        Question q2 = new Question("B is correct", "A", "B", "C", "D", 2);
+        Question q2 = new Question("What are the colors in the Indian national flag? Select all",
+                "A) White",
+                "B) Yellow",
+                "C) Orange",
+                "D) Green", 2);
         addQuestion(q2);
 
-        Question q3 = new Question("C is correct", "A", "B", "C", "D", 3);
-        addQuestion(q3);
-
-        Question q4 = new Question("D is correct", "A", "B", "C", "D", 4);
-        addQuestion(q4);
 
     }
 
+    //CREATE
     private void addQuestion(Question question) {
         ContentValues cv = new ContentValues();
         cv.put(QuestionTable.COLUMN_QUESTION, question.getQuestion());
@@ -77,12 +80,13 @@ public class QuizDbHelper extends SQLiteOpenHelper {
 
     }
 
-    public List<Question> getAllQuestions(){
+    //READ operation
+    public List<Question> getAllQuestions() {
         List<Question> questionList = new ArrayList<>();
         db = getReadableDatabase();
         Cursor c = db.rawQuery("SELECT * FROM " + QuestionTable.TABLE_NAME, null);
 
-        if(c.moveToFirst()){
+        if (c.moveToFirst()) {
             do {
                 Question question = new Question();
                 //get question from questions column & save to question objext
@@ -102,6 +106,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         return questionList;
     }
 
+    //UPDATE
 
 
 }
